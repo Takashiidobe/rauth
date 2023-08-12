@@ -1,5 +1,4 @@
 use google_authenticator::GoogleAuthenticator;
-use shellexpand;
 use std::fs::File;
 use std::io::{self, prelude::*, BufReader};
 
@@ -19,7 +18,7 @@ fn main() -> io::Result<()> {
     let authenticator = GoogleAuthenticator::new();
     for line in reader.lines() {
         let line = line.unwrap();
-        let split_line: Vec<&str> = line.split(":").collect();
+        let split_line: Vec<&str> = line.split(':').collect();
 
         let secret: String = split_line[1]
             .to_string()
